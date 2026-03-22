@@ -216,6 +216,53 @@ class Person:
         else:
             self.say(default_message)
     
+    def age_up(self,
+             increment: int = 1,
+             height_increment: float | None = None,
+             check_birthday: bool = True) -> None:
+        """Increase this person's age by a given amount.
+
+        Args:
+            increment: How many years to add to the person's age.
+                       Defaults to 1.
+            height_increment: Optional amount (in metres) to increase
+                              height. Defaults to None (no change).
+            check_birthday: If True, raises an error when today's date
+                            does not match the person's birthday.
+                            Defaults to True.
+
+        Raises:
+            ValueError: If check_birthday is True and today is not the
+                        person's birthday.
+            TypeError: If increment is not an int.
+        """
+        if not isinstance(increment, int):
+            raise TypeError(
+                f"'increment' must be an int, got {type(increment).__name__}"
+            )
+
+        if check_birthday:
+            today = date.today()
+            bday = self.life_dates.birthday_date
+            if bday is None or not (
+                today.month == bday.month and today.day == bday.day
+            ):
+                raise ValueError(
+                    "Today is not this person's birthday. "
+                    "Pass check_birthday=False to skip this check."
+                )
+
+        if self.profile.age is not None:
+            self.profile.age += increment
+        else:
+            self.profile.age = increment
+
+        if height_increment is not None:
+            if self.physical.height is not None:
+                self.physical.height += height_increment
+            else:
+                self.physical.height = height_increment
+
     def existential_crisis(self) -> None:
         """Say a random existential crisis message."""
         messages = [
