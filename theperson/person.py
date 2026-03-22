@@ -95,6 +95,33 @@ class Person:
         print("\U0001f44b")  # Unicode for waving hand emoji
 
     @staticmethod
+    def smile(emoji_type: str | None = None) -> None:
+        """Smile with a smiling emoji.
+
+        This method prints a smiling emoji to represent a smile.
+        Users can choose from a range of different smiles or get a random one.
+
+        Args:
+            emoji_type: The type of smile emoji to use. Options are:
+                - "slight": slightly smiling face
+                - "happy": smiling face with smiling eyes
+                - "big": beaming face with smiling eyes
+                - "grin": grinning face with smiling eyes
+                If None, a random emoji is chosen.
+        """
+        smile_emojis = {
+            "slight": "🙂",   # 🙂 slightly smiling face
+            "happy": "😊",    # 😊 smiling face with smiling eyes
+            "big": "😁",      # 😁 beaming face with smiling eyes
+            "grin": "😄",     # 😄 grinning face with smiling eyes
+        }
+
+        emoji = smile_emojis.get(
+            emoji_type, random.choice(list(smile_emojis.values()))
+        )
+        print(emoji)
+
+    @staticmethod
     def cry(emoji_type: str | None = None) -> None:
         """Cry with a crying emoji.
 
