@@ -217,9 +217,9 @@ class Person:
             self.say(default_message)
     
     def age_up(self,
-             increment: int = 1,
-             height_increment: float | None = None,
-             check_birthday: bool = True) -> None:
+               increment: int = 1,
+               height_increment: float | None = None,
+               check_birthday: bool = True) -> None:
         """Increase this person's age by a given amount.
 
         Args:
