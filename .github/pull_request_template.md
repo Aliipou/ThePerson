@@ -1,16 +1,30 @@
-**PLEASE FOLLOW THE INSTRUCTIONS BELOW BEFORE WRITING THIS PULL REQUEST.**
+## مشکل چیست؟
+<!-- یک جمله: این PR چه مشکلی را حل می‌کند؟ -->
 
-### 📋 Select a Template
+## چرا این راه‌حل؟
+<!-- چرا این approach انتخاب شد؟ ساده‌تر چه بود؟ -->
 
-On the "Open a pull request" page (where you are right now):
-1. Switch to the Preview tab.
-2. Click one of the links below to load the correct template for your PR:
+---
 
-   - [📋 Completed Task Template](?template=COMPLETED-TASK.md)
-   - [🐛 Bug Fix Template](?template=BUG-FIX.md)
-   - [✨ New Feature Template](?template=NEW-FEATURE.md)
-   - **Clear this text to write your PR from scratch**
+## Anti-Garbage Checklist
 
-   _Note_: Clicking a link above will reload this page and overwrite any text.
-3. If a "Comparing changes" page opens, select "Create pull request" to 
-   continue to your chosen template.
+### قبل از merge این‌ها را تیک بزن:
+
+**Design**
+- [ ] این کد قابل حذف است؟ (اگر نه، دلیل داری؟)
+- [ ] naming بدون توضیح اضافه واضح است؟
+- [ ] state flow را می‌توانی روی کاغذ رسم کنی؟
+- [ ] این abstraction الان واقعاً لازم است؟
+
+**Quality**
+- [ ] error handling واقعی است — نه فقط `console.log(e)`؟
+- [ ] هر log یک اطلاعات actionable دارد؟
+- [ ] هر test یک رفتار واقعی را verify می‌کند — نه فقط coverage؟
+
+**AI Usage**
+- [ ] اگر AI نوشته: تمام کد را خودت خواندی و فهمیدی؟
+- [ ] هیچ بخش auth/security/concurrency توسط AI بدون review کامل نیست؟
+
+**قانون طلایی**
+- [ ] می‌توانی بدون AI توضیح دهی این کد چه می‌کند، چرا اینطور طراحی شده، و failure mode آن چیست؟
+- [ ] نسخه خسته و عصبانی خودم ۶ ماه دیگر از این کد متنفر نخواهد شد؟
